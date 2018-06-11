@@ -1,0 +1,12 @@
+{
+  "background_color": "#fff",
+  "start_url": "/",
+  "name": "Clojurescript ad libs",
+  "short_name": "cljs ad libs",
+  "lang": "en-US",
+  "icons": [{
+    "src": "images/icon-256.png",
+    "sizes": "256x256",
+    "type": "image/png"
+  }]
+}

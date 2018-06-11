@@ -1,0 +1,13 @@
+.envrc
+/.cpcache
+/.idea
+/*.iml
+/*.log
+/.lein-*
+/.rebel*
+/target
+/*-init.clj
+/bin
+/resources/public/js/compiled
+/pom.xml
+out

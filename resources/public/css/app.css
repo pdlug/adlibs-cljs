@@ -1,0 +1,98 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    margin: 0;
+}
+
+.text {
+    margin: 15px
+}
+
+#app {
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 20em;
+    text-align: center;
+}
+
+input[type=text] {
+    font-size: 24px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px solid black;
+    width: 150px;
+}
+
+input[type=text]:focus {
+    outline: 0;
+    border-color: #0074d9;
+}
+
+@keyframes grow_shrink {
+    0%, 100% {
+        font-size: 36px;
+    }
+    50% {
+        font-size: 24px;
+    }
+}
+
+#loading {
+    animation: grow_shrink 2s infinite;
+}
+
+.blurry {
+    color: transparent;
+    text-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button {
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+    display: block;
+    padding: 14px 28px;
+    text-decoration: none;
+    width: 100%;
+}
+
+.button:hover {
+    opacity: 0.75;
+}
+
+.primary {
+    background-color: #0074d9;
+}
+
+.reset {
+    background-color: #aaaaaa;
+}
+
+@media only screen and (min-width: 768px) {
+    body {
+        font-size: 36px;
+    }
+
+    .text {
+        margin: 50px;
+    }
+
+    #app {
+        line-height: 1.5;
+    }
+
+    input[type=text] {
+        font-size: 36px;
+    }
+
+    .buttons {
+        display: none;
+    }
+}
