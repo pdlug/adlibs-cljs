@@ -24,7 +24,7 @@ Try it out here: <https://demos.pauldlug.com/adlibs/>
 In development run:
 
 ```bash
-clojure -A:figwheel build.clj figwheel
+clj -A:figwheel -m figwheel.main -b dev -r
 ```
 
 Then open a browser to <http://localhost:3449/> and you'll have a nice figwheel
@@ -33,7 +33,7 @@ instance.
 For a production build run:
 
 ```bash
-clojure build.clj compile
+clj -A:figwheel -m figwheel.main -bo prod
 ```
 
 ## Deployment

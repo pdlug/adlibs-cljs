@@ -12,7 +12,5 @@
    {binaryage/devtools {:mvn/version "0.9.10"}
     com.cemerick/piggieback {:mvn/version "0.2.2"
                              :exclusions [com.google.javascript/closure-compiler]}
-    figwheel-sidecar {:mvn/version "0.5.16"
-                      :exclusions [com.google.javascript/closure-compiler]}
-    com.bhauman/rebel-readline {:mvn/version "0.1.4"}
+    com.bhauman/figwheel-main       {:mvn/version "0.1.8"}
     com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}}}}

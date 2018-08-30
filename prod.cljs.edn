@@ -1,0 +1,4 @@
+{:main                 adlibs.core
+ :optimizations        :advanced
+ :output-to            "resources/public/js/compiled/app.js"
+ :closure-defines      {goog.DEBUG false}}
