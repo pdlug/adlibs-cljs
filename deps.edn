@@ -1,5 +1,5 @@
 {:paths ["src" "resources"]
- :deps {org.clojure/clojurescript {:mvn/version "1.10.339"}
+ :deps {org.clojure/clojurescript {:mvn/version "1.10.439"}
         reagent {:mvn/version "0.8.1"}}
 
  :aliases
@@ -12,5 +12,5 @@
    {binaryage/devtools {:mvn/version "0.9.10"}
     com.cemerick/piggieback {:mvn/version "0.2.2"
                              :exclusions [com.google.javascript/closure-compiler]}
-    com.bhauman/figwheel-main       {:mvn/version "0.1.8"}
+    com.bhauman/figwheel-main       {:mvn/version "0.2.0"}
     com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}}}}
