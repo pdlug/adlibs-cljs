@@ -1,6 +1,7 @@
 (ns adlibs.core
   (:require [clojure.string :as string]
-            [reagent.core :as r]))
+            [reagent.core :as r]
+            [reagent.dom :as reagent-dom]))
 
 (def sample-text
   ["Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do "
@@ -47,20 +48,20 @@
    to atoms"
   [text]
   (reduce
-    (fn [m word]
-      (if (string? word)
-        (assoc m :text (conj (:text m) [nil word]))
-        (do
-          (let [s (gensym)
-                c (build-component word)]
-            (-> m
-                (assoc-in [:inputs s] c)
-                (assoc :text (conj (:text m) [s (:component c)]))
-                (assoc :order (conj (:order m) s)))))))
-    {:inputs {}
-     :order  []
-     :text   []}
-    text))
+   (fn [m word]
+     (if (string? word)
+       (assoc m :text (conj (:text m) [nil word]))
+       (do
+         (let [s (gensym)
+               c (build-component word)]
+           (-> m
+               (assoc-in [:inputs s] c)
+               (assoc :text (conj (:text m) [s (:component c)]))
+               (assoc :order (conj (:order m) s)))))))
+   {:inputs {}
+    :order  []
+    :text   []}
+   text))
 
 (defn positions
   "Returns the positions in a collection where the given value appears"
@@ -106,20 +107,20 @@
                      (reset! reveal? false))
                    (set-focus :next cur inputs))]
     (r/create-class
-      {:component-did-mount #(set-focus-to-first inputs)
-       :display-name        "text-block"
-       :reagent-render
-       (fn []
-         (into [:div
-                {:class ["text" (if-not @reveal? "blurry")]}]
-               (map (fn [[id c]]
-                      (if (string? c)
-                        c
-                        (conj c
-                              :on-enter (partial on-enter id)
-                              :on-down #(set-focus :next id inputs)
-                              :on-up #(set-focus :prev id inputs))))
-                    (:text inputs))))})))
+     {:component-did-mount #(set-focus-to-first inputs)
+      :display-name        "text-block"
+      :reagent-render
+      (fn []
+        (into [:div
+               {:class ["text" (if-not @reveal? "blurry")]}]
+              (map (fn [[id c]]
+                     (if (string? c)
+                       c
+                       (conj c
+                             :on-enter (partial on-enter id)
+                             :on-down #(set-focus :next id inputs)
+                             :on-up #(set-focus :prev id inputs))))
+                   (:text inputs))))})))
 
 (defn button
   [label & {:keys [className on-click]}]
@@ -147,4 +148,4 @@
          [buttons inputs reveal?])])))
 
 (if-let [el (.getElementById js/document "app")]
-  (r/render [ad-lib sample-text] el))
+  (reagent-dom/render [ad-lib sample-text] el))
